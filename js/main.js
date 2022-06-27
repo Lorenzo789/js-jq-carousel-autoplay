@@ -10,6 +10,8 @@ const images = [
     const imgContainer = document.getElementById('img-container');
     let imageActive = 0;
 
+    setInterval(clockImage, 3000);
+
     for (let index = 0; index < images.length; index++) {
         
         const newImg = document.createElement('img');
@@ -28,21 +30,31 @@ const images = [
     }
     
 
-    
+    // * FUNCTION * \\
+    function clockImage() {
+
+        let imageList = imgContainer.children;
+
+        imageList[imageActive].classList.add('d-none');
+
+        ++imageActive;
 
 
+        if (imageActive === images.length) {
 
+            imageActive = 0;
 
+        }
 
+        imageList[imageActive].classList.remove('d-none');
 
-
-
-
+        return imageActive;
+    }
+    // * FUNCTION * \\
 
     
     //! NEXT BUTTON
     let imageList = imgContainer.children;
-    console.log(imageList);
     const nextButton = document.getElementById('next-btn');
     nextButton.addEventListener('click' , function(){
 
