@@ -28,7 +28,47 @@ const images = [
         imgContainer.append(newImg);
 
     }
+        
+        //! NEXT BUTTON
+        let imageList = imgContainer.children;
+        const nextButton = document.getElementById('next-btn');
+        nextButton.addEventListener('click' , function(){
+
+            imageList[imageActive].classList.add('d-none');
     
+            ++imageActive;
+    
+            
+            if (imageActive === images.length){
+    
+                imageActive = 0;
+                
+            }
+    
+            imageList[imageActive].classList.remove('d-none');
+        })
+        //! NEXT BUTTON
+    
+        //? PREV BUTTON
+        const prevButton = document.getElementById('prev-btn');
+        prevButton.addEventListener('click' , function(){
+    
+            imageList[imageActive].classList.add('d-none');
+    
+            --imageActive;
+    
+            if (imageActive === -1) {
+                
+                imageActive = images.length-1;
+    
+            }
+    
+            imageList[imageActive].classList.remove('d-none');
+        })
+        //? PREV BUTTON
+    
+
+
 
     // * FUNCTION * \\
     function clockImage() {
@@ -51,42 +91,3 @@ const images = [
         return imageActive;
     }
     // * FUNCTION * \\
-
-    
-    //! NEXT BUTTON
-    let imageList = imgContainer.children;
-    const nextButton = document.getElementById('next-btn');
-    nextButton.addEventListener('click' , function(){
-
-        imageList[imageActive].classList.add('d-none');
-
-        ++imageActive;
-
-        
-        if (imageActive === images.length){
-
-            imageActive = 0;
-            
-        }
-
-        imageList[imageActive].classList.remove('d-none');
-    })
-    //! NEXT BUTTON
-
-    //? PREV BUTTON
-    const prevButton = document.getElementById('prev-btn');
-    prevButton.addEventListener('click' , function(){
-
-        imageList[imageActive].classList.add('d-none');
-
-        --imageActive;
-
-        if (imageActive === -1) {
-            
-            imageActive = images.length-1;
-
-        }
-
-        imageList[imageActive].classList.remove('d-none');
-    })
-    //? PREV BUTTON
